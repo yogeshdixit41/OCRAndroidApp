@@ -1,0 +1,147 @@
+package yogesh.atArxxus.newsreader;
+
+
+
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class ResultViewActivity extends Activity {
+
+	EditText resultTextView;
+	String resultText;
+	String finalResultText;
+	String ignore_chars[] = {"'",";","{","}","[","]","(",")",":","*","$","|","^","#","!",">","<","`","~","\"","?","%","=","-","_"};
+	String webServiceInputString = "";
+	Button getNewsButton;
+	String newsHeadline;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_result_view);
+		getNewsButton = (Button) findViewById(R.id.getNews);
+		
+		
+		
+		
+		Intent i = getIntent();
+		resultText=i.getStringExtra("scanned_text");
+		
+		String resultTextLines[] = resultText.split("\n");
+		
+		for(int j=0;j<resultTextLines.length;j++)
+		{
+			for(int k=0;k<ignore_chars.length;k++)
+			{
+				if(resultTextLines[j].contains(ignore_chars[k]))
+					resultTextLines[j]=resultTextLines[j].replace(ignore_chars[k], "");
+				
+			}	
+		}
+		
+		resultText = "";
+		
+		for(int j=0;j<resultTextLines.length;j++)
+		{
+			webServiceInputString = webServiceInputString + resultTextLines[j] + " "; 
+			resultText =resultText + resultTextLines[j] + "\n";
+		}
+		resultTextView = (EditText) findViewById(R.id.resultEditText);
+		resultTextView.setText("");
+		resultTextView.setText(webServiceInputString);
+		
+		
+		OnClickListener getNewsClickListener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				newsHeadline = resultTextView.getText().toString();
+				newsHeadline = newsHeadline.replace(" ","%20");
+				String myURL = "http://sheltered-taiga-3258.herokuapp.com/toi/" + newsHeadline;
+				HttpGetter get = new HttpGetter();
+				get.execute(myURL);
+				
+			}
+		};
+		
+		getNewsButton.setOnClickListener(getNewsClickListener);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.result_view, menu);
+		return true;
+	}
+	
+	
+	
+	private class HttpGetter extends AsyncTask<String, Void , Void> {
+
+		private ProgressDialog inProgressDialog = new ProgressDialog(ResultViewActivity.this);
+		@Override
+		protected Void doInBackground(String... urls) {
+			// TODO Auto-generated method stub
+			
+			try {
+				
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpGet httpGet = new HttpGet(urls[0]);
+				ResponseHandler<String> responseHandler = new BasicResponseHandler();
+				String getResponseString = httpClient.execute(httpGet,responseHandler);
+				Intent next = new Intent(getApplicationContext(), NewsResponseListViewActivity.class);
+				next.putExtra("data", getResponseString);
+				startActivity(next);
+				//resultTextView.setText(getResponseString);
+			} catch (ClientProtocolException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return null;
+			
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			inProgressDialog.dismiss();
+		}
+
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			inProgressDialog.setMessage("Fetching News");
+			inProgressDialog.show();
+		}
+		
+		
+	}
+	
+
+}

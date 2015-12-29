@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="yogesh.atArxxus.newsreader"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-feature android:name="android.hardware.camera"  android:required="false"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="yogesh.atArxxus.newsreader.SplashScreen"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="yogesh.atArxxus.newsreader.FirstActivity"
+            android:label="@string/title_activity_first"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="yogesh.atArxxus.newsreader.CameraPreview" >
+        </activity>
+        <activity
+            android:name="yogesh.atArxxus.newsreader.CapturedImagePreview"
+            android:label="@string/title_activity_captured_image_preview" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="yogesh.atArxxus.newsreader.ResultViewActivity"
+            android:label="@string/title_activity_result_view" 
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="yogesh.atArxxus.newsreader.NewsResponseListViewActivity"
+            android:label="@string/title_activity_news_response_list_view" >
+        </activity>
+        <activity
+            android:name="yogesh.atArxxus.newsreader.NewsResponseActivity"
+            android:label="@string/title_activity_news_response" >
+        </activity>
+    </application>
+
+</manifest>

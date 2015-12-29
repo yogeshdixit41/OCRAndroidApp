@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    
+    tools:context=".CapturedImagePreview" 
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/capturedImageView"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_above="@+id/accept"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/capturedImageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/accept_btn_selectr"
+        android:clickable="true"
+        android:contentDescription="proceed to scanning the image" />
+
+    <Button
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/accept"
+        android:layout_alignBottom="@+id/accept"
+        android:layout_alignRight="@+id/capturedImageView"
+        android:background="@drawable/retry_btn_selectr"
+        android:clickable="true"
+        android:contentDescription="go back to capture image" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/homebtnselectr" />
+
+</RelativeLayout>

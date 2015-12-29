@@ -1,0 +1,105 @@
+package yogesh.atArxxus.newsreader;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import android.os.Bundle;
+import android.os.Environment;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+
+public class FirstActivity extends Activity {
+	
+	public static final String DATA_PATH = Environment.getExternalStorageDirectory().toString() + "/NewsReader/";
+	private static final String TAG = "FirstActivity.java";
+	protected String _path;
+	public static final String lang = "eng";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		//@yogesh code for making application directory and tessdata directory
+		
+		
+		String[] paths = new String[] { DATA_PATH, DATA_PATH + "tessdata/" };
+
+		for (String path : paths) {
+			File dir = new File(path);
+			if (!dir.exists()) {
+				if (!dir.mkdirs()) {
+					Log.v(TAG, "ERROR: Creation of directory " + path + " on sdcard failed");
+					return;
+				} else {
+					Log.v(TAG, "Created directory " + path + " on sdcard");
+					
+				}
+			}
+
+		}
+		
+		
+		if (!(new File(DATA_PATH + "tessdata/" + lang + ".traineddata")).exists()) {
+			try {
+
+				AssetManager assetManager = getAssets();
+				InputStream in = assetManager.open("tessdata/" + lang + ".traineddata");
+				//GZIPInputStream gin = new GZIPInputStream(in);
+				OutputStream out = new FileOutputStream(DATA_PATH
+						+ "tessdata/" + lang + ".traineddata");
+
+				// Transfer bytes from in to out
+				byte[] buf = new byte[1024];
+				int len;
+				//while ((lenf = gin.read(buff)) > 0) {
+				while ((len = in.read(buf)) > 0) {
+					out.write(buf, 0, len);
+				}
+				in.close();
+				//gin.close();
+				out.close();
+				
+				Log.v(TAG, "Copied " + lang + " traineddata");
+			} catch (IOException e) {
+				Log.e(TAG, "Was unable to copy " + lang + " traineddata " + e.toString());
+			}
+		}
+
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_first);
+		
+		Button captureButton = (Button)findViewById(R.id.capture_button);
+		Button HelpButton = (Button)findViewById(R.id.help_tutorials);
+		
+		OnClickListener captureButtonListener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				Intent cameraPreviewActivity = new Intent(getApplicationContext(), CameraPreview.class);
+				startActivity(cameraPreviewActivity);
+			}
+		};
+		
+		captureButton.setOnClickListener(captureButtonListener);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.first, menu);
+		return true;
+	}
+
+}

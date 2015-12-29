@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">News Reader</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_captured_image_preview">CapturedImagePreview</string>
+    <string name="title_activity_result_view">ResultViewActivity</string>
+
+</resources>

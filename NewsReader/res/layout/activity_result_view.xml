@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context=".ResultViewActivity"
+    android:background="@drawable/background" >
+    
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/homebtnselectr" />
+
+    <EditText
+        android:id="@+id/resultEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip"
+        android:layout_alignRight="@+id/homeButton"
+        android:layout_centerVertical="true"
+        android:background="@drawable/curve_corners"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:overScrollMode="always"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="6dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:hint="Enter the headline here" 
+       />
+
+
+    <LinearLayout 
+        android:id="@+id/get_news_lin_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignLeft="@+id/resultEditText"
+        
+        android:paddingBottom="20dp"
+        android:layout_below="@+id/resultEditText"
+        android:paddingTop="20dp"
+        >
+
+    	<Button
+        	android:id="@+id/getNews"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="@drawable/getnews_btn_selectr" 
+        	android:layout_marginRight="10dp"
+        />
+
+    	<Button 
+    	    android:id="@+id/selectNewsPaper"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:background="@drawable/select_news_paper_selector"
+    	    />
+
+    	
+    </LinearLayout>
+        	
+
+</RelativeLayout>

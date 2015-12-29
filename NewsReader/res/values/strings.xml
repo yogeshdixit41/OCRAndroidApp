@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">News Reader</string>
+    <string name="title_activity_first">Home</string>
+    <string name="title_activity_captured_image_preview">Image Preview</string>
+    <string name="title_activity_result_view">Scanned Result</string>
+    <string name="title_activity_news_response_list_view">News Response</string>
+    <string name="title_activity_news_response">News</string>
+    <string-array name="availableNewsPaperNames">
+        <item>All</item>
+        <item>Times Of India</item>
+        <item>Hindustan Times</item>
+    </string-array>
+
+</resources>

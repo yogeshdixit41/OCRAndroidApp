@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.5" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" language="java" name="yogesh.atArxxus.newsreader.ResultViewActivity.HttpGetter" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/ResultViewActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="151" width="223" x="889" y="407"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="yogesh.atArxxus.newsreader.NewsPaperListDialog" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/NewsPaperListDialog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="205" width="240" x="1152" y="407"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="yogesh.atArxxus.newsreader.CapturedImagePreview" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/CapturedImagePreview.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="295" width="180" x="210" y="72"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="yogesh.atArxxus.newsreader.FirstActivity" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/FirstActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="223" width="210" x="430" y="72"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="yogesh.atArxxus.newsreader.ResultViewActivity" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/ResultViewActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="277" width="167" x="1152" y="72"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="yogesh.atArxxus.newsreader.NewsResponseActivity" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/NewsResponseActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="172" x="680" y="72"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="yogesh.atArxxus.newsreader.NewsResponseListViewActivity" project="NewsReader" 
+    file="/NewsReader/src/yogesh/atArxxus/newsreader/NewsResponseListViewActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="169" width="220" x="892" y="72"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="yogesh.atArxxus.newsreader.CapturedImagePreview.myTessScanning" 
+    project="NewsReader" file="/NewsReader/src/yogesh/atArxxus/newsreader/CapturedImagePreview.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="151" width="251" x="210" y="407"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="9">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="10" name="dialog"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="12">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="13">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <nesting id="15">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <dependency id="16">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <dependency id="17">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <nesting id="18">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

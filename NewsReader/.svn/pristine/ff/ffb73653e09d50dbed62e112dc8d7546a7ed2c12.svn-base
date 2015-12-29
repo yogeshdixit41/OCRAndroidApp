@@ -1,0 +1,60 @@
+package yogesh.atArxxus.newsreader;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class ResultViewActivity extends Activity {
+
+	EditText resultTextView;
+	String resultText;
+	String finalResultText;
+	String ignore_chars[] = {"'",";","{","}","[","]","(",")",":","*","$","|","^","#","!",">","<","`","~","\"","?","%","=","-","_"};
+	String webServiceInputString = "";
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_result_view);
+		
+		
+		
+		
+		
+		Intent i = getIntent();
+		resultText=i.getStringExtra("scanned_text");
+		
+		String resultTextLines[] = resultText.split("\n");
+		
+		for(int j=0;j<resultTextLines.length;j++)
+		{
+			for(int k=0;k<ignore_chars.length;k++)
+			{
+				if(resultTextLines[j].contains(ignore_chars[k]))
+					resultTextLines[j]=resultTextLines[j].replace(ignore_chars[k], "");
+				
+			}	
+		}
+		
+		resultText = "";
+		
+		for(int j=0;j<resultTextLines.length;j++)
+		{
+			webServiceInputString = webServiceInputString + resultTextLines[j] + " "; 
+			resultText =resultText + resultTextLines[j] + "\n";
+		}
+		resultTextView = (EditText) findViewById(R.id.resultEditText);
+		resultTextView.setText("");
+		resultTextView.setText(webServiceInputString);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.result_view, menu);
+		return true;
+	}
+
+}
